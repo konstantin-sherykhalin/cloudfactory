@@ -1,21 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import {createBottomTabNavigator } from 'react-navigation';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
-  }
-}
+import AboutScreen from './src/screens/AboutScreen';
+import QuotationScreen from './src/screens/QuotationScreen';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const TabNavigator = createBottomTabNavigator({
+	About: AboutScreen,
+	Quotation: QuotationScreen,
+},
+{
+	tabBarPosition: 'top',
+	tabBarOptions: {
+		activeTintColor: 'yellow',
+		activeBackgroundColor: 'green',
+		labelStyle: {
+			padding: 15,
+			fontSize: 16,
+		}
+	}
 });
+
+export default () => <TabNavigator/>
