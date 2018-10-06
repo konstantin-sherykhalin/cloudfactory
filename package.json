@@ -10,7 +10,20 @@
   },
   "dependencies": {
     "expo": "^30.0.1",
+    "firebase": "^5.5.2",
+    "immutable": "^3.8.2",
+    "prop-types": "^15.6.2",
     "react": "16.3.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "react-native-actionsheet": "^2.4.2",
+    "react-native-expo-image-cache": "^3.2.0",
+    "react-native-modal": "^6.5.0",
+    "react-native-modal-datetime-picker": "^6.0.0",
+    "react-native-router-flux": "^4.0.5",
+    "react-native-svg-uri": "^1.2.3",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-form": "^7.4.2",
+    "redux-saga": "^0.16.0"
   }
 }
