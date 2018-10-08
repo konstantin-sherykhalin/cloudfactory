@@ -1,3 +1,5 @@
+// Компонент отображения таблицы котировок
+
 import React,{Component} from 'react';
 import {StyleSheet,Text,View,TextInput,TouchableNativeFeedback} from 'react-native';
 

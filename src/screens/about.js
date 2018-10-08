@@ -1,3 +1,5 @@
+// Экран "О приложении"
+
 import React,{Component} from 'react';
 import {StyleSheet,Text,View,TextInput,TouchableNativeFeedback} from 'react-native';
 

@@ -1,3 +1,5 @@
+// Здесь соединяем хранилище и функции с компонентом
+
 import {connect} from 'react-redux';
 import {fetch_data,module} from '../redux/reducers/quotation';
 import QuotationComponent from '../components/quotation';
