@@ -22,9 +22,11 @@ export default function reducer(st=initial,data) {
 		quotation.loading = false;
 		quotation.loaded = true;
 		quotation.list = payload;
+		quotation.error = null;
 
 	} else if(type == FETCH_DATA_ERROR) {
 		quotation.loading = false;
+		quotation.loaded = false;
 		quotation.error = error;
 	}
 
@@ -51,7 +53,13 @@ export const fetch_data_saga = function* ({payload}) {
 				'Content-Type':	'application/json',
 			},
 		});
-		let data = yield res.json();
+		if(res.status == 200) {
+			var data = yield res.json();
+		} else {
+			throw("Сервер полоникса не отвечает");
+		}
+
+		if(Math.random() < 0.3) throw("Случайно выпадающая ошибка для демонстрации");
 
 		yield put({
 			type: FETCH_DATA_SUCCESS,
