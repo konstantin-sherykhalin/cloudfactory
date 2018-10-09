@@ -10,22 +10,25 @@ export const FETCH_DATA_SUCCESS	= 'FETCH_DATA_SUCCESS';
 export const FETCH_DATA_ERROR	= 'FETCH_DATA_ERROR';
 
 // Редуктор
-export default function reducer(state = initial.quotation,action) {
-	const {type,payload,error} = action;
+export default function reducer(st=initial,data) {
+	const {type,payload,error} = data;
 
-	switch (type) {
-	case FETCH_DATA_REQUEST:
-		return Object.assign(state,{loading:true});
+	let {quotation} = st;
 
-	case FETCH_DATA_SUCCESS:
-		return Object.assign(state,{loading:false,data:payload})
+	if(type == FETCH_DATA_REQUEST) {
+		quotation.loading = true;
 
-	case FETCH_DATA_ERROR:
-		return Object.assign(state,{loading:false,error});
+	} else if(type == FETCH_DATA_SUCCESS) {
+		quotation.loading = false;
+		quotation.loaded = true;
+		quotation.list = payload;
 
-	default:
-		return state;
+	} else if(type == FETCH_DATA_ERROR) {
+		quotation.loading = false;
+		quotation.error = error;
 	}
+
+	return Object.assign({},st);
 }
 
 // Действие
@@ -50,7 +53,6 @@ export const fetch_data_saga = function* ({payload}) {
 		});
 		let data = yield res.json();
 
-		console.log(data);
 		yield put({
 			type: FETCH_DATA_SUCCESS,
 			payload: data,

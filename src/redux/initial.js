@@ -2,7 +2,7 @@
 
 var init = () => ({
 	quotation: {
-		data: [],
+		list: [],
 		error: null,
 		loading: false,
 		loaded: false,

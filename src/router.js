@@ -1,5 +1,5 @@
 import React						from 'react';
-import {StyleSheet,Text,View}		from 'react-native';
+import {StatusBar,View}				from 'react-native';
 import {createBottomTabNavigator}	from 'react-navigation';
 import {Provider}					from 'react-redux';
 
@@ -8,7 +8,8 @@ import QuotationScreen	from './screens/quotation';
 
 import store from './redux';
 
-const TabNavigator = createBottomTabNavigator(
+StatusBar.setBarStyle('dark-content',true);
+const Root = createBottomTabNavigator(
 	{
 		'О приложении': AboutScreen,
 		'Котировки': QuotationScreen,
@@ -22,8 +23,8 @@ const TabNavigator = createBottomTabNavigator(
 				padding: 15,
 				fontSize: 16, fontFamily: 'Medium',
 			}
-		}
-	}
+		},
+	},
 );
 
-export default () => <Provider store={store}><TabNavigator/></Provider>
+export default () => <Provider store={store}><View style={{height:'100%',paddingTop:20}}><Root/></View></Provider>
