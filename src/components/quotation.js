@@ -71,15 +71,15 @@ export default withNavigation(class Quotation extends Component {
 		return (
 			<View style={styles.container}>
 				<TouchableOpacity onPress={_=>this.props.navigation.navigate('О приложении')}>
-					<Text style={[styles.text,styles.link]}>Вернуться к описанию</Text>
+					<Text style={[styles.text,styles.link]}>〈  Вернуться к описанию</Text>
 				</TouchableOpacity>
+				{data.error ? (<Text style={[styles.text,styles.error]}>Ошибка: {data.error}</Text>) : null}
 				<View style={styles.head}>
 					<Text style={[styles.text,{width:'25%'}]}>Пара</Text>
 					<Text style={[styles.text,{width:'25%'}]}>Последнее</Text>
 					<Text style={[styles.text,{width:'25%'}]}>Высшее</Text>
 					<Text style={[styles.text,{width:'25%'}]}>Процент</Text>
 				</View>
-				{data.error ? (<Text style={[styles.text,styles.error]}>Ошибка: {data.error}</Text>) : null}
 				{(data.loading && !data.loaded) ? <Wait/> : null}
 				{data.loaded ? (
 					<ScrollView>

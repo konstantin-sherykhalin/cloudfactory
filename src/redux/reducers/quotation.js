@@ -26,7 +26,7 @@ export default function reducer(st=initial,data) {
 
 	} else if(type == FETCH_DATA_ERROR) {
 		quotation.loading = false;
-		quotation.loaded = false;
+		// quotation.loaded = false;
 		quotation.error = error;
 	}
 
@@ -59,7 +59,7 @@ export const fetch_data_saga = function* ({payload}) {
 			throw("Сервер полоникса не отвечает");
 		}
 
-		if(Math.random() < 0.3) throw("Случайно выпадающая ошибка для демонстрации");
+		if(Math.random() < 0.2) throw("Случайно выпадающая ошибка для демонстрации (с вероятностью 20%)");
 
 		yield put({
 			type: FETCH_DATA_SUCCESS,
